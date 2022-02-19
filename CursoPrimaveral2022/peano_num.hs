@@ -1,37 +1,62 @@
 module PeanoNatural where
 
+import           Control.Monad
 
 -- Cero es natural
 -- El sucesor de un natural
 --  tambien es natural
 
-data Natural = Cero | Succ (Natural) deriving (Show)
+data Natural = Zero | Succ Natural
 
--- Succ (Succ (Succ Cero))
+instance Show Natural where
+    show Zero     = "0"
+    show (Succ n) = "S" ++ show n
 
-suma :: Natural -> Natural -> Natural
-suma Cero n     = n
-suma n Cero     = n
-suma (Succ n) m = suma n (Succ m)
+data Quizas a = Nada | Un a
 
-mult :: Natural -> Natural -> Natural
-mult Cero _     = Cero
-mult _ Cero     = Cero
-mult (Succ n) m = suma m (mult n m)
+instance Show a => Show (Quizas a) where
+    show Nada   = "Null"
+    show (Un x) = "Un(" ++ show x ++ ")"
 
-pred :: Natural -> Natural
-pred Cero     = error "Num negativo"
-pred (Succ n) = n
+instance Functor Quizas where
+    fmap _ Nada   = Nada
+    fmap f (Un x) = Un (f x)
 
-rest :: Natural -> Natural -> Natural
-rest n Cero            = n
-rest Cero n            = error "Numero negativo"
-rest (Succ n) (Succ m) = rest n m
+instance Applicative Quizas where
+    pure x = Un x
+    Nada <*> _        = Nada
+    _ <*> Nada        = Nada
+    (Un f) <*> (Un x) = Un (f x)
 
-data Lista a = Empty | Cons a (Lista a)
+instance Monad Quizas where
+    -- join = (flip (>>=)) id
+    Nada >>= _   = Nada
+    (Un x) >>= f = f x
 
-cabeza :: Lista a -> Quizas a
-cabeza Empty       = Nada
-cabeza (Cons x xs) = Un x
+liftJoin2 :: Monad m => (a -> b -> m c) -> m a -> m b -> m c
+liftJoin2 f x y = join $ f <$> x <*> y
 
-data Quizas a = Nada | Un a deriving Show
+toPeano :: Int -> Quizas Natural
+toPeano 0 = Un Zero
+toPeano n
+    | n < 0 = Nada
+    | otherwise = (toPeano . pred) n >>= (return . Succ)
+
+add :: Natural -> Natural -> Quizas Natural
+add Zero n     = Un n
+add (Succ n) m = (Un . Succ) m >>= add n
+
+mul :: Natural -> Natural -> Quizas Natural
+mul Zero _     = Un Zero
+mul (Succ n) m = (mul n m) >>= add m
+
+sub :: Natural -> Natural -> Quizas Natural
+sub n Zero            = Un n
+sub Zero _            = Nada
+sub (Succ m) (Succ n) = sub m n
+
+test = do
+    let n = (Succ (Succ (Succ (Succ (Succ Zero)))))
+    let m = (Succ (Succ Zero))
+    let q = (Succ Zero)
+    putStrLn . show $ (add m n >>= mul m >>= flip sub q)
