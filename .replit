@@ -1,0 +1,4 @@
+language = "haskell"
+
+run = ["runhaskell", "Main.hs"]
+entrypoint = "Main.hs"
