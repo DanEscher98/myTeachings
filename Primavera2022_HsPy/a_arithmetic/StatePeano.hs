@@ -27,10 +27,10 @@ sub n Zero      = Just n
 sub Zero _      = Nothing
 sub (S m) (S n) = sub m n
 
-division :: Nat -> Nat -> Maybe (Nat, Nat) -- (rem, qot)
-division _ Zero = Nothing
-division a b    = Just (runState (loop a b) Zero) where
-    loop a b    = do
+divNat :: Nat -> Nat -> Maybe (Nat, Nat) -- (rem, qot)
+divNat _ Zero = Nothing
+divNat a b    = Just (runState (loop a b) Zero) where
+    loop a b  = do
         case (sub a b) of
           Nothing -> return a
           Just a' -> modify S >> loop a' b
@@ -45,11 +45,33 @@ toPeano n
     | otherwise = (toPeano . pred) n >>= (return . S)
 
 divInt :: Int -> Int -> Maybe (Nat, Nat)
-divInt a b = liftJoin2 division (toPeano a) (toPeano b)
+divInt a b = liftJoin2 divNat (toPeano a) (toPeano b)
+
+equal :: Nat -> Nat -> Bool
+equal Zero Zero   = True
+equal Zero _      = False
+equal _ Zero      = False
+equal (S a) (S b) = equal a b
+
+intProp1 :: Int -> [(Int, (Int, Int))]
+intProp1 n = do
+    x <- [1..n]
+    y <- [1..n]
+    let r = rem x y
+    guard (r == quot x y)
+    return (r, (x, y))
+
+intProp2 n =
+    takeWhile (not . null)
+    . concat
+    . map (takeWhile  ((<20) . fst)
+        . (\n -> [(n * (b + 1), b) | b <- [1..]]))
+    $ [1..n]
+
 
 test = do
     let n = toPeano 13
     let m = toPeano (-2)
     let q = toPeano 4
-    putStrLn . show . fromJust $ division <$> n <*> q
+    putStrLn . show . fromJust $ divNat <$> n <*> q
 --  putStrLn . show $ (add m n >>= mul m >>= flip sub q)
