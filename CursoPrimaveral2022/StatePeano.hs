@@ -14,15 +14,6 @@ instance Show Nat where
     show Zero  = "0"
     show (S n) = "S" ++ show n
 
-liftJoin2 :: Monad m => (a -> b -> m c) -> m a -> m b -> m c
-liftJoin2 f x y = join $ f <$> x <*> y
-
-toPeano :: Int -> Maybe Nat
-toPeano 0 = Just Zero
-toPeano n
-    | n < 0 = Nothing
-    | otherwise = (toPeano . pred) n >>= (return . S)
-
 add :: Nat -> Nat -> Maybe Nat
 add Zero n  = Just n
 add (S n) m = (Just . S) m >>= add n
@@ -30,12 +21,6 @@ add (S n) m = (Just . S) m >>= add n
 mul :: Nat -> Nat -> Maybe Nat
 mul Zero _  = Just Zero
 mul (S n) m = (mul n m) >>= add m
-
-minor :: Nat -> Nat -> Bool
-minor Zero Zero   = False
-minor _ Zero      = False
-minor Zero _      = True
-minor (S a) (S b) = minor a b
 
 sub :: Nat -> Nat -> Maybe Nat
 sub n Zero      = Just n
@@ -48,11 +33,19 @@ division a b    = Just (runState (loop a b) Zero) where
     loop a b    = do
         case (sub a b) of
           Nothing -> return a
-          Just a' -> do
-              modify S
-              loop a' b
+          Just a' -> modify S >> loop a' b
 
-divInt a b = join $ division <$> toPeano a <*> toPeano b
+liftJoin2 :: Monad m => (a -> b -> m c) -> m a -> m b -> m c
+liftJoin2 f x y = join $ f <$> x <*> y
+
+toPeano :: Int -> Maybe Nat
+toPeano 0 = Just Zero
+toPeano n
+    | n < 0 = Nothing
+    | otherwise = (toPeano . pred) n >>= (return . S)
+
+divInt :: Int -> Int -> Maybe (Nat, Nat)
+divInt a b = liftJoin2 division (toPeano a) (toPeano b)
 
 test = do
     let n = toPeano 13
