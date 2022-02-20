@@ -1,8 +1,9 @@
 TARGET	= peano
+DIR 	= a_arithmetic
 FLAGS 	= --toc --standalone #--citeproc
 
 pdf :
-	pandoc $(TARGET).md -o $(TARGET).pdf $(FLAGS)
+	pandoc $(DIR)/$(TARGET).md -o $(TARGET).pdf $(FLAGS)
 	cp $(TARGET).pdf $(HOME)/MyWindows/Working/
 
 html :
