@@ -68,6 +68,13 @@ intProp2 n =
         . (\n -> [(n * (b + 1), b) | b <- [1..]]))
     $ [1..n]
 
+intersectOrd [] _ = []
+intersectOrd _ [] = []
+intersectOrd (x:xs) (y:ys) =
+    case (compare x y) of
+      EQ -> x : intersectOrd xs ys
+      LT -> intersectOrd xs (y:ys)
+      GT -> intersectOrd (x:xs) ys
 
 test = do
     let n = toPeano 13
