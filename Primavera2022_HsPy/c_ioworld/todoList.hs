@@ -47,3 +47,5 @@ testExc msg = do
     case result of
         Left _  -> testExc "Try again: "
         Right n -> return n
+
+-- https://stackoverflow.com/questions/5121371/how-to-catch-a-no-parse-exception-from-the-read-function-in-haskell
