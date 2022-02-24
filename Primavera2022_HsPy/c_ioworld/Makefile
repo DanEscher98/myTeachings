@@ -1,6 +1,6 @@
 CODE = todoList
-TARGET	= peano
-DIR 	= c_ioworld
+TARGET	=
+DIR 	= .
 FLAGS 	= --toc --standalone #--citeproc
 
 $(DIR)/$(CODE).out : $(DIR)/$(CODE).hs
