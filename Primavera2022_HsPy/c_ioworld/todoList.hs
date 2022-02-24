@@ -9,7 +9,6 @@ import           System.Directory
 import           System.IO
 
 
-
 main :: IO ()
 main = do
     contents <- readFile "todo.txt"
@@ -30,8 +29,12 @@ prompt :: String -> IO String
 prompt text = putStr text >> hFlush stdout >> getLine
 
 maybeRead :: Read a => String -> Maybe a
-maybeRead = fmap fst . listToMaybe
-    . filter (all isSpace . snd) . reads
+maybeRead s = let s' = takeWhile (not . isSpace) s
+               in case reads s' of
+                    [(x, "")] -> Just x
+                    _         -> Nothing
+
+myerr = error "try"
 
 getValue :: Read a => String -> IO a
 getValue msg = do
@@ -40,12 +43,11 @@ getValue msg = do
       Nothing -> getValue "Try again: "
       Just n  -> return n
 
-testExc :: String -> IO Int
-testExc msg = do
-    s <- prompt msg
-    result <- try (return . read $ s) :: IO (Either SomeException Int)
+testExc :: forall a . a -> IO (Maybe a)
+testExc expr = do
+    result <- (try . evaluate) expr :: IO (Either SomeException a)
     case result of
-        Left _  -> testExc "Try again: "
-        Right n -> return n
+        Left _  -> return Nothing
+        Right x -> return $ Just x
 
 -- https://stackoverflow.com/questions/5121371/how-to-catch-a-no-parse-exception-from-the-read-function-in-haskell
