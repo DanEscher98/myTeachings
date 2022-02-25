@@ -1,5 +1,6 @@
 module StateFunctions where
 
+import           Control.Monad       ((<=<))
 import           Control.Monad.State (State, evalState, get, mapM, mapM_,
                                       modify, put, runState)
 import           Data.Char
@@ -7,6 +8,7 @@ import           Data.Function
 import qualified Data.Map            as Map (Map, adjust, empty, fromList,
                                              insert, lookup, member, toList)
 import           Data.Maybe
+import           System.IO
 
 type MemoST a b = State (Map.Map a b) b
 
@@ -103,12 +105,12 @@ type FuncMemoST a b = a -> (a -> MemoST a b)
 --             y <- f x
 --             modify $ Map.insert x y
 --             return y
---
+
 
 codifyStr1 :: String -> String
 codifyStr1 = concat . map auxF . Map.toList . countLetters where
     auxF (c,n)  | n == 1 = [c]
-                |otherwise = (show n) ++ [c]
+                | otherwise = (show n) ++ [c]
 
 countLetters :: String -> Map.Map Char Int
 countLetters = countElem . map toLower . filter isAlpha
