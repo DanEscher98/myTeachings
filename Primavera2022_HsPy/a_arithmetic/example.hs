@@ -16,6 +16,23 @@ funk1' xs = do
             return x
     -}
 
+data Identidad a = Box a
+
+instance Show a => Show (Identidad a) where
+    show (Box x) = "I'm " ++ show x
+
+instance Functor Identidad where
+    fmap f (Box x) = Box (f x)
+
+instance Applicative Identidad where
+    pure x = Box x
+    (Box f) <*> (Box x) = Box (f x)
+
+instance Monad Identidad where
+    (Box x) >>= f = f x
+
+-- Monada Maybe
+
 data Quizas a = Nada | Un a
 
 instance Show a => Show (Quizas a) where
@@ -45,7 +62,7 @@ plegarD _ e Null        = e
 plegarD f e (Cons x xs) = f x (plegarD f e xs)
 
 plegarI :: (b -> a -> b) -> b -> (Lista a) -> b
-plegarI f e Null        = e
+plegarI _ e Null        = e
 plegarI f e (Cons x xs) = plegarI f (f e x) xs
 
 concatena :: Lista a -> Lista a -> Lista a
@@ -72,3 +89,12 @@ instance Applicative Lista where
 instance Monad Lista where
     Null >>= _        = Null
     (Cons x xs) >>= f = concatena (f x) (xs >>= f)
+
+
+eldoble :: (Monad m, Integral a) => m a -> m a
+eldoble = fmap ((div 2) . (+1) . (*3))
+
+{- int eldoble(int x):
+        m = 3 * x + 1
+        m' = m / 2
+        return m-}
