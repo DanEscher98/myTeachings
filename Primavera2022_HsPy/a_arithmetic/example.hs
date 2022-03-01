@@ -91,8 +91,8 @@ instance Monad Lista where
     (Cons x xs) >>= f = concatena (f x) (xs >>= f)
 
 
-eldoble :: (Monad m, Integral a) => m a -> m a
-eldoble = fmap ((div 2) . (+1) . (*3))
+toEven1 :: (Monad m, Integral a) => m a -> m a
+toEven1 = fmap ((div 2) . (+1) . (*3))
 
 {- int eldoble(int x):
         m = 3 * x + 1

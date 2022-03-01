@@ -127,7 +127,7 @@ if [ -n "$PkgMgr" ]; then
     declare -a PkgList=("git" "xz" "make"
         "gcc" "perl" "fish" "neovim,nvim" "neofetch"
         "python3" "python3-pip,pip3" "zoxide" "tree"
-        "trash-cli,trash" "exa" "htop")
+        "trash-cli,trash" "exa" "htop" "subversion")
     for package in ${PkgList[@]}; do
         fst=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $1 }')
         snd=$(echo $package | tr -d "[:blank:]" | awk -F, '{ print $2 }')
