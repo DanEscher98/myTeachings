@@ -108,9 +108,14 @@ type FuncMemoST a b = a -> (a -> MemoST a b)
 
 
 codifyStr1 :: String -> String
-codifyStr1 = concat . map auxF . Map.toList . countLetters where
-    auxF (c,n)  | n == 1 = [c]
-                | otherwise = (show n) ++ [c]
+codifyStr1 s = (concat . map auxF . Map.toList . countLetters) s where
+    auxF (c,n) = if n == 1 then [c] else (show n) ++ [c]
+
+codifyNum1 :: Int -> String
+codifyNum1 n = map (chr . (+97) . read . pure) (show n)
+
+decodeNum1 :: String -> Int
+decodeNum1 = read . concat . map (\c -> show $ (ord c) - 97)
 
 countLetters :: String -> Map.Map Char Int
 countLetters = countElem . map toLower . filter isAlpha
