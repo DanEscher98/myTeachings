@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 from inspect import currentframe, getframeinfo
+from typing import Generator, Iterable, Iterator
 
 
 class MyHandler:
