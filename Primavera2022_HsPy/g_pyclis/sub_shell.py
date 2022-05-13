@@ -7,9 +7,9 @@ from typing import Tuple
 def execute_process(cmd: str) -> Tuple[bytes, bytes, int]:
     from subprocess import PIPE, Popen
 
-    p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
-    out, err = p.communicate()
-    return (out, err, p.returncode)
+    pipe = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
+    out, err = pipe.communicate()
+    return (out, err, pipe.returncode)
 
 
 if __name__ == "__main__":

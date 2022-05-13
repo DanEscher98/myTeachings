@@ -27,7 +27,7 @@ def args_namespace() -> Namespace:
 
 
 if __name__ == "__main__":
-    namespace: argparse.Namespace = args_namespace()
+    namespace: Namespace = args_namespace()
     # print(vars(namespace))
     if not os.path.isdir(path := namespace.Path):
         raise Exception(f"{namespace.Path} is not a dir.")

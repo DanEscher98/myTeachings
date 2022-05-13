@@ -44,6 +44,7 @@ import this
     - [Docs:Functional](https://docs.python.org/3/library/functional.html)
     - [Docs:Datatypes](https://docs.python.org/3/library/datatypes.html)
     - [PickleModule](https://realpython.com/python-pickle-module/)
+    - [Dictionaries](https://realpython.com/python-dicts/)
 ```python
 from typing import Iterable, Iterator, Generator
 issubclass(Iterator, Iterable)  # True
@@ -108,6 +109,7 @@ globals()
 ```
 - links:
     - [Scope](https://realpython.com/python-namespaces-scope/)
+    - [Pass by Reference](https://realpython.com/python-pass-by-reference/)
     - [CLI](https://realpython.com/command-line-interfaces-python-argparse/)
     - [TreeProject](https://realpython.com/directory-tree-generator-python/)
 
@@ -122,3 +124,9 @@ globals()
     - [Sockets](https://realpython.com/python-sockets/)
     - [Docs:Networking](https://docs.python.org/3/library/ipc.html)
     - [Medium:MultiThreading](https://towardsdatascience.com/multithreading-multiprocessing-python-180d0975ab29)
+
+### DataScience Topics
+- words:
+- libraries: numpy, scipy, sympy, matplotlib, pandas
+- links:
+    - [DataFrame](https://realpython.com/pandas-dataframe/)

@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+import os
+import re
+import sys
 
 
-def tokenize(str_program):
+def parser(str_program):
     match str_program:
         case ["(", expression, ")"]:
             return eval(expression)
@@ -15,3 +18,13 @@ def tokenize(str_program):
                     return float(str_program)
                 except ValueError:
                     raise ValueError(f"{str_program} is not a number")
+
+
+def eval(expression):
+    match expression:
+        case ["+", a_exp, b_exp]:
+            return parser(a_exp) + parser(b_exp)
+        case ["-", a_exp, b_exp]:
+            return parser(a_exp) - parser(b_exp)
+        case _:
+            return None
