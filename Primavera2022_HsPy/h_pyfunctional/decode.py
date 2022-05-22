@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import re
+import sys
 
 
 def decode(filename) -> str:
@@ -13,5 +13,5 @@ def decode(filename) -> str:
 
 
 if __name__ == "__main__":
-    msg = decode("gabriel_msg.txt")
+    msg = decode(sys.argv[1])
     print(msg.replace(". ", ".\n").strip())
