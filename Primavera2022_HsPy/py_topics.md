@@ -109,6 +109,7 @@ __call__
 globals()
 ```
 - links:
+    - [Import Tips](https://realpython.com/python-import/)
     - [Scope](https://realpython.com/python-namespaces-scope/)
     - [Pass by Reference](https://realpython.com/python-pass-by-reference/)
     - [CLI](https://realpython.com/command-line-interfaces-python-argparse/)
