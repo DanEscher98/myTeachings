@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import argparse
-import sys
 from argparse import Namespace
 
 
@@ -42,7 +41,7 @@ def args_namespace() -> Namespace:
         default="/dev/stdout",
         help="set the file to write the output",
     )
-    return parser.parse_args(sys.argv[1:])
+    return parser.parse_args()
 
 
 def decode_bin(filename, base: int) -> str:
