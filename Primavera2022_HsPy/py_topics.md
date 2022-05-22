@@ -84,6 +84,7 @@ __call__
     - [Inheritance vs Composition](https://realpython.com/inheritance-composition-python/)
     - [PEP44:Protocols](https://peps.python.org/pep-0544/)
     - [PEP673:SelfType](https://peps.python.org/pep-0673/)
+    - [Instance Static Abstract Class](https://blog.devgenius.io/a-look-at-instance-static-class-and-abstract-methods-in-python-c82bd06c0430)
 
 ### Structural Pattern Matching
 - words: `match, case`
@@ -124,9 +125,22 @@ globals()
     - [Sockets](https://realpython.com/python-sockets/)
     - [Docs:Networking](https://docs.python.org/3/library/ipc.html)
     - [Medium:MultiThreading](https://towardsdatascience.com/multithreading-multiprocessing-python-180d0975ab29)
+    - [How async should've been](https://sobolevn.me/2020/06/how-async-should-have-been)
 
 ### DataScience Topics
 - words:
 - libraries: numpy, scipy, sympy, matplotlib, pandas
 - links:
     - [DataFrame](https://realpython.com/pandas-dataframe/)
+    - [Manim animations](https://docs.manim.community/en/stable/index.html)
+
+### Functional Topics
+- links:
+    - [HigherKindedTypes](https://sobolevn.me/2020/10/higher-kinded-types-in-python)
+    - [Monads and DoBlocks](https://blog.bede.io/do-notation-for-monads-in-python/)
+    - [PyMonads](https://www.miguelfarrajota.com/2021/06/monads-in-python-with-pymonad/)
+    - [Monads in Pictures](https://github.com/dbrattli/oslash/wiki/Functors,-Applicatives,-And-Monads-In-Pictures)
+
+### SysAdmin Topics
+    - [ipaddress](https://realpython.com/python-ipaddress-module/)
+
