@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Creating a simple shell """
 
 
 from typing import Tuple
@@ -7,9 +8,9 @@ from typing import Tuple
 def execute_process(cmd: str) -> Tuple[bytes, bytes, int]:
     from subprocess import PIPE, Popen
 
-    pipe = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
-    out, err = pipe.communicate()
-    return (out, err, pipe.returncode)
+    with Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True) as pipe:
+        out, err = pipe.communicate()
+        return (out, err, pipe.returncode)
 
 
 if __name__ == "__main__":

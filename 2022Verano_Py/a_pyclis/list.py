@@ -23,7 +23,7 @@ def args_namespace() -> Namespace:
     parser.add_argument(
         "-a", "--all", action="store_true", help="do not ignore entries starting with ."
     )
-    return parser.parse_args(sys.argv)
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
