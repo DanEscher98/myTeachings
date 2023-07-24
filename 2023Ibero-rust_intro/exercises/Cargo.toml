@@ -6,3 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow              = "1.0.71"  # flexible `Result`
+thiserror           = "1.0.40"  # define custom `Error`
+log                 = "0.4.17"
+pretty_env_logger   = "0.5.0"   # colored wrapper
+colored             = "2.0.0"
+clap                = { version="4.2.7", features=["derive"] }
+
+[dev-dependencies]
+pretty_assertions   = "1.3.0"   # colored wrapper
+criterion           = { version = "0.5.1", features = ["html_reports"] }

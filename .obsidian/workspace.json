@@ -1,0 +1,180 @@
+{
+  "main": {
+    "id": "2f25612149b75a0c",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb7138e1f52f10a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "10ab5d54d49836aa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2023Ibero-rust_intro/slides/pages/4_syntax_b.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f3f3b24399a085e1",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2023-07-12 17.19.14.excalidraw.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ca51a6c0a101cf25",
+    "type": "split",
+    "children": [
+      {
+        "id": "73b5129d9629325a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "953069a369a44508",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "745c3d52b3f4e23c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0d74c24dd97a9a7c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "fc1724b1b93bd009",
+    "type": "split",
+    "children": [
+      {
+        "id": "d47c8be671eacf94",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "29b1d5c0f8315048",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Excalidraw/Drawing 2023-07-12 17.19.14.excalidraw.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b09c78ea8c1b9e06",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Excalidraw/Drawing 2023-07-12 17.19.14.excalidraw.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "925361fe28108050",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "21420287f9e7d82a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Excalidraw/Drawing 2023-07-12 17.19.14.excalidraw.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "f3f3b24399a085e1",
+  "lastOpenFiles": [
+    "2023Ibero-rust_intro/slides/pages/4_syntax_b.md",
+    "Excalidraw/Drawing 2023-07-12 17.19.14.excalidraw.md",
+    "Excalidraw/Drawing 2023-07-12 17.19.14.excalidraw.svg",
+    "Excalidraw",
+    "2023Ibero-rust_intro/slides/pages/3_syntax_a.md",
+    "2023Ibero-rust_intro/slides/pages/2_workflow.md",
+    "2023Ibero-rust_intro/slides/pages/1_introduction.md",
+    "2023Ibero-rust_intro/slides/pages/8_beyond.md",
+    "2023Ibero-rust_intro/slides/pages/7_exercise.md",
+    "2023Ibero-rust_intro/slides/pages/6_compilation.md",
+    "2023Ibero-rust_intro/slides/pages/5_features.md",
+    "2023Ibero-rust_intro/slides/slides.md",
+    "2023Ibero-rust_intro/slides/node_modules/undici/docs/api/Dispatcher.md"
+  ]
+}

@@ -2,15 +2,8 @@ pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
 
-fn func(mut var: &usize) {
-    var = 2;
-}
-
 pub fn collatz(mut num: usize) -> usize {
     let mut steps = 0usize;
-    let var: usize;
-    func(&var);
-    println!("{}", var);
 
     while num > 1 {
         if num % 2 == 0 {

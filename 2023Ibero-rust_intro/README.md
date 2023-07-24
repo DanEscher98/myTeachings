@@ -8,45 +8,66 @@ developers.
 
 ### Block 1: Introduction to Rust (1.5 hours)
 
-#### Introduction (15 minutes)
-- Welcome and overview of the workshop
-- Why Rust? Justification for Rust in the context of Polkadot
+- [ ] Introduction (15 minutes)
+    - [ ] Welcome and overview of the workshop
+    - [x] Goals of the workshop
+        1. Familiarity with `cargo` workflow (TDD, deps)
+        2. Understand `mods` & project structure
+        3. Get an panoramic view of the Rust ecosystem
+        4. Gain intuitions when reading source code
+    - [ ] Why Rust?
+    - [x] Brief historic context
 
-#### Rust Tooling (15 minutes)
-- Cargo, Rustup, and Rustfmt
-- Rust Documentation and Community Resources
-- Cargo extensions
+- [ ] Rust Basic Tooling (15 minutes)
+    - [ ] Install [rustup](https://rustup.rs/)
+    - [x] Directory layout and explanation
+    - [x] Cargo toml file
+    - [ ] Rust Documentation and Community Resources
+    - [ ] Live coding: hello world
 
-#### Rust Basics (30 minutes)
-- Variables and Data Types
-- Control Flow (If, Loop, While, For)
-- Functions and Modules
-- Live coding: Simple Rust programs
+- [ ] Rust Basics 1 (30 minutes)
+    - [ ] Variables and Data Types
+    - [ ] Control Flow (If, Loop, While, For)
+    - [ ] Functions and Modules
+    - [x] Live coding: collatz, test, docs, bench, watch
 
-#### Rust Advanced Features (30 minutes)
-- Ownership, Borrowing, and Lifetimes
-- Structs, Enums, and Pattern Matching (ADTs)
-- Error Handling (Option & Result)
-- Live coding: Advanced Rust programs
+- [ ] Rust Basics 2 (30 minutes)
+    - [x] Ownership, Borrowing, and Lifetimes
+    - [ ] Structs, Enums, and Pattern Matching (ADTs)
+    - [ ] Error Handling (Option & Result)
+    - [ ] Template of a `mod`
+    - [ ] Live coding: Merkle Tree
 
+### Block 2: Rust in Depth (2 hours)
 
-## Block 2: Rust in Depth (2 hours)
+- [ ] Rust's Killer Features (30 minutes)
+    - [ ] Zero-cost abstractions
+    - [ ] Memory safety without garbage collection
+    - [ ] Smart pointers
+    - [ ] Concurrency without data races
+    - [ ] Pattern matching
+    - [ ] How is Rust secure?
+    - [ ] Understanding `unsafe`
+    - [ ] Live coding: Demonstrating Rust's killer features
 
-#### Rust's Killer Features (30 minutes)
-- Zero-cost abstractions
-- Memory safety without garbage collection
-- Concurrency without data races
-- Pattern matching
-- Live coding: Demonstrating Rust's killer features
+- [ ] Rust compilation process (30 minutes)
+    - [ ] Understanding MIR using Compiler Explorer
+    - [ ] Procedural Macros in Rust
+    - [ ] Traits and Generics
+    - [ ] Live coding: Exploring MIR and Macros
 
-#### Rust compilation process (30 minutes)
-- Understanding MIR using Compiler Explorer
-- Procedural Macros in Rust
-- Traits and Generics
-- Live coding: Exploring MIR and Macros
+- [ ] Exercise (1 hour)
+    - [ ] Transition machine
+    - [ ] Merkle Tree
+    - [x] WASM compile
+    - [x] unsafe feature
 
-#### Wrap Up and Q&A (15 minutes)
-- List possible questions
+- [ ] Work ongoing and beyound (15 min)
+    - [ ] Ferrosystems specification
+    - [ ] MIR formalization
+
+- [ ] Wrap Up and Q&A (15 minutes)
+    - [ ] List possible questions
 
 ## REFERENCES
 - [Cargo Book](https://doc.rust-lang.org/cargo/index.html)

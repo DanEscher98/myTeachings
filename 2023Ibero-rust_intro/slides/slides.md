@@ -8,7 +8,7 @@ info: |
   Presentation slides for Polkadot events
 drawings:
   persist: false
-transition: slide-left
+transition: fade-out
 title: Rust Workshop
 ---
 
@@ -33,103 +33,93 @@ Danyiel Colin
 </div>
 
 ---
-layout: default
+
+# Goals of the Workshop
+1. Familiarity with `cargo` workflow (TDD, deps)
+2. Understand `mods` & project structure
+3. Get an panoramic view of the Rust ecosystem
+4. Gain intuitions when reading source code
+
 ---
 
 # Table of contents
 
-<Toc columns=2 mode='all'/>
-
+<Toc columns=2></Toc>
 
 ---
-transition: fade-out
+transition: slide-up
+src: ./pages/1_introduction.md
 ---
 
-# ¿Por qué Rust?
+---
+transition: slide-up
+src: ./pages/2_workflow.md
+---
 
-- 2003: **LLVM** release
-- 2011: **Rust** bootstrap compiler, **LLVM** based
-- 2011: **C++** smart pointers (`unique_ptr`, `shared_ptr`, `weak_ptr`)
-- Oct-2012 **TypeScript** first appeared
-- Sep-2014: **Python** Type Hints (PEP 484)
-```python
-def greet(name: str) -> str:
-    return 'Hello ' + name
+---
+transition: slide-up
+src: ./pages/3_syntax_a.md
+---
+
+---
+transition: slide-up
+src: ./pages/4_syntax_b.md
+---
+
+---
+transition: slide-up
+src: ./pages/5_features.md
+---
+
+---
+transition: slide-up
+src: ./pages/6_compilation.md
+---
+
+---
+transition: slide-up
+src: ./pages/7_exercise.md
+---
+
+---
+transition: slide-up
+src: ./pages/8_beyond.md
+---
+
+
+
+
+
+
+# A classic pointer
+
+```mermaid
+flowchart LR
+    subgraph Steps
+        direction TB
+        step1[1 Allocate memory]
+        step2[2 Assign value to memory]
+        step3[3 Access value through pointer]
+    end
+
+    subgraph Variables
+        ptr{ptr}
+        var{value}
+    end
+
+    subgraph Memory
+        data(Data)
+    end
+
+    ptr -->|points to| data
+    var -->|contains| data
+
+    step1 -->|allocate| data
+    step2 -->|assign| var
+    step3 -->|access| var
 ```
-
-- May-2015: **Rust** first stable release
-- Mar-2022: **Golang** added generics
-- Jul-2022: **Carbon** first time presented at a **C++** conference
-
-
----
-
-# Directory layout
-```
-📁 .                        // `cargo new --bin my_project`
-├──📄README.md
-├──📄Cargo.toml             // project config
-├──📄.cargo/config.toml     // compiler config
-├──📁src
-│  ├──📁my_mod
-│  │  ├── func_1.rs
-│  │  └── func_2.rs
-│  ├── lib.rs               // expose pub code
-│  ├── main.rs              // `cargo run`
-│  └── utils.rs
-├──📁tests                  // `cargo test`
-│  └── validation.rs
-└──📁benches                // `cargo bench`
-   └── performance.rs
-```
-
----
-
-# Common libraries
-
-```toml
-[package]
-name = "my_package"
-version = "0.1.0"
-edition = "2018"
-authors = ["Daniel Sanchez <amaniel2718@protonmail.com>"]
-
-[dependencies]
-anyhow              = "1.0.71"  # flexible `Result`
-thiserror           = "1.0.40"  # define custom `Error`
-log                 = "0.4.17"
-pretty_env_logger   = "0.4.0"   # colored wrapper
-colored             = "2.0.0"
-clap                = { version="4.2.7", features=["derive"] }
-
-[dev-dependencies]
-pretty_assertions   = "1.3.0"   # colored wrapper
-criterion           = { version = "0.4", features = ["html_reports"] }
-```
-
----
 
 # benches
-
-```rust
-pub fn black_box<T>(dummy: T) -> T {
-    unsafe {
-        let ret = std::ptr::read_volatile(&dummy);
-        // let ret = {
-        //     assert_unsafe_precondition!(
-        //         "ptr::read_volatile requires that the pointer argument is aligned and non-null",
-        //         [T](dummy: *const T) => !dummy.is_null() &&
-        //             ((dummy.as_ptr() as usize) % mem::align_of::<T>()) == 0
-        //     );
-        //     intrinsics::volatile_load(dummy)
-        // };
-
-        std::mem::forget(dummy);
-        //let _ = ManuallyDrop::new(dummy);
-        ret
-    }
-}
-```
 
 ---
 layout: center
