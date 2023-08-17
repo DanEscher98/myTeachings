@@ -1,0 +1,17 @@
+{
+  "name": "slides",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.42.4",
+    "@slidev/theme-bricks": "^0.0.2",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "slidev-theme-purplin": "^1.2.0",
+    "slidev-theme-unicorn": "^1.1.1"
+  }
+}
