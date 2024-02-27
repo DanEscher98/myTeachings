@@ -12,7 +12,7 @@ transition: fade-out
 title: Rust Workshop
 ---
 
-# Rust Workshop
+# El rol de ink! en Polkadot
 
 Danyiel Colin
 
@@ -34,11 +34,10 @@ Danyiel Colin
 
 ---
 
-# Goals of the Workshop
-1. Familiarity with `cargo` workflow (TDD, deps)
-2. Understand `mods` & project structure
-3. Get an panoramic view of the Rust ecosystem
-4. Gain intuitions when reading source code
+# Objetivos del Workshop
+1. Breve introducción a Rust
+2. Overview de `ink!`
+3. Crear y deployar un primer `smart-contract`
 
 ---
 
@@ -48,84 +47,17 @@ Danyiel Colin
 
 ---
 transition: slide-up
-src: ./pages/1_introduction.md
+src: ./pages/1_defink.md
 ---
 
 ---
 transition: slide-up
-src: ./pages/2_workflow.md
+src: ./pages/2_rustintro.md
 ---
 
 ---
 transition: slide-up
 src: ./pages/3_fstink.md
 ---
-
----
-transition: slide-up
-src: ./pages/4_syntax_b.md
----
-
----
-transition: slide-up
-src: ./pages/5_features.md
----
-
----
-transition: slide-up
-src: ./pages/6_compilation.md
----
-
----
-transition: slide-up
-src: ./pages/7_exercise.md
----
-
----
-transition: slide-up
-src: ./pages/8_beyond.md
----
-
-
-
-
-
-
-# A classic pointer
-
-```mermaid
-flowchart LR
-    subgraph Steps
-        direction TB
-        step1[1 Allocate memory]
-        step2[2 Assign value to memory]
-        step3[3 Access value through pointer]
-    end
-
-    subgraph Variables
-        ptr{ptr}
-        var{value}
-    end
-
-    subgraph Memory
-        data(Data)
-    end
-
-    ptr -->|points to| data
-    var -->|contains| data
-
-    step1 -->|allocate| data
-    step2 -->|assign| var
-    step3 -->|access| var
-```
-
-# benches
-
----
-layout: center
-class: text-center
----
-
-# Learn More
 
 [Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
